@@ -20,9 +20,10 @@ RUN apk add --no-cache \
     unzip \
     git \
     oniguruma-dev \
-    libzip-dev
+    libzip-dev \
+    postgresql-dev
 
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+RUN docker-php-ext-install pdo_mysql pdo_pgsql pgsql mbstring exif pcntl bcmath gd zip
 
 # Configure Nginx
 COPY docker/nginx.conf /etc/nginx/nginx.conf
